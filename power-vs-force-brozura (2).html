@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POWER vs. FORCE — Návrat k sobě skrze tělo, dech a vnitřní sílu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #F7F3EE;
+      --sand:     #EDE5D8;
+      --gold:     #A8895A;
+      --gold-light: #C9A96E;
+	--gold-bright: #D4A017;
+      --bark:     #6B5240;
+      --text:     #2E2420;
+      --muted:    #7A6A5E;
+      --white:    #FFFFFF;
+	--navy: #0D1F3C;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(247,243,238,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(168,137,90,0.18);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    nav a.cta-nav {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    nav a.cta-nav:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 32px 60px;
+      background-image: url('https://drive.google.com/thumbnail?id=1CsB4FRN2P5Tq00B91kHAQnRsvSUnWpTD&sz=w1600');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(7,17,42,0.62) 0%,
+        rgba(7,17,42,0.45) 50%,
+        rgba(7,17,42,0.68) 100%
+      );
+      pointer-events: none;
+    }
+    .hero > * { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 28px;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(232,184,75,0.4);
+      padding: 6px 20px;
+      border-radius: 100px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 40px;
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(4px);
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 8vw, 96px);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--gold-light);
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+      text-shadow: 0 0 60px rgba(232,184,75,0.7), 0 0 20px rgba(232,184,75,0.5), 0 2px 20px rgba(0,0,0,0.3);
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--gold-pale);
+    }
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 300;
+      font-style: italic;
+      color: #EEE5CC;
+      max-width: 560px;
+      margin: 0 auto 52px;
+      line-height: 1.4;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(232,184,75,0.2);
+      border-radius: 4px;
+      padding: 4px 48px;
+    }
+    .hero-meta-item {
+      text-align: center;
+	
+    }
+    .hero-meta-item .label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .hero-meta-item .value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--cream);
+    }
+    .hero-divider {
+  width: 1px;
+  height: 60px;
+  background: rgba(232,184,75,0.25);
+  align-self: center;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 18px 44px;
+      border-radius: 100px;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--bark);
+      transform: translateY(-1px);
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 32px;
+      background: var(--gold);
+      animation: pulse-line 2s ease-in-out infinite;
+    }
+    @keyframes pulse-line {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* ── SHARED LAYOUT ── */
+    section { padding: 100px 32px; }
+    .container { max-width: 860px; margin: 0 auto; }
+    .container-wide { max-width: 1100px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 5vw, 54px);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 28px;
+      color: var(--text);
+    }
+    h2 em { font-style: italic; color: var(--gold); }
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--bark);
+      margin-bottom: 12px;
+    }
+    p { margin-bottom: 20px; color: var(--muted); }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── INTRO QUOTE ── */
+   .quote-section {
+  background: var(--sand);
+  text-align: center;
+  padding: 52px 32px;
+  position: relative;
+}
+.quote-section blockquote,
+.quote-section .ornament,
+.quote-section cite {
+  position: relative;
+  z-index: 1;
+    }
+  .quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4em;
+  color: var(--gold);
+  line-height: 1;
+  display: inline; /* místo block */
+  vertical-align: -0.1em; /* jemné zarovnání na účaří */
+}
+    blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3.5vw, 34px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      max-width: 800px;
+      margin: 0 auto 20px;
+      line-height: 1.45;
+    }
+    cite {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-visual-inner {
+      aspect-ratio: 3/4;
+      background: var(--sand);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .about-visual-inner svg {
+      width: 80px;
+      height: 80px;
+      opacity: 0.3;
+    }
+    .about-visual-accent {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      border: 1px solid rgba(168,137,90,0.35);
+      border-radius: 50%;
+    }
+
+    /* ── PILLARS ── */
+    .pillars-section {
+      background: var(--navy);
+    }
+    .pillars-section .section-eyebrow { color: var(--gold-light); }
+    .pillars-section h2 { color: var(--cream); }
+    .pillars-section h2 em { color: var(--gold-light); }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+    }
+    .pillar {
+      background: rgba(255,255,255,0.04);
+      padding: 48px 36px;
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.3s;
+    }
+    .pillar:hover { background: rgba(168,137,90,0.1); }
+    .pillar-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+  color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .pillar h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .pillar p { color: rgba(247,243,238,0.6); font-size: 15px; margin: 0; }
+
+    /* ── PROGRAM / WHAT YOU'LL EXPERIENCE ── */
+    .experience-list {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .experience-item {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(168,137,90,0.15);
+    }
+    .experience-item:last-child { border-bottom: none; }
+    .exp-icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      border: 1px solid rgba(168,137,90,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .exp-content h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .exp-content p { margin: 0; font-size: 15px; }
+
+    /* ── HUNA ── */
+.huna-section { background: var(--sand); padding: 52px 32px; }
+.huna-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.huna-card {
+  background: var(--cream);
+  padding: 20px 22px;
+  border-radius: 2px;
+  border-top: 2px solid #2A4F8A;
+}
+.huna-word {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #2A4F8A;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+.huna-meaning {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+    /* ── FOR WHOM ── */
+    .for-whom-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .for-whom-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .for-whom-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 11px;
+    }
+    .for-whom-item p { margin: 0; font-size: 16px; }
+
+    /* ── LECTURER ── */
+    .lecturer-section { background: var(--navy); }
+.lecturer-section h2 { color: var(--cream); }
+.lecturer-section h2 em { color: var(--gold-light); }
+.lecturer-section .section-eyebrow { color: var(--gold-light); }
+.lecturer-section .lecturer-name { color: var(--cream); }
+.lecturer-section .lecturer-role { color: var(--gold-light); }
+.lecturer-section p { color: rgba(250,246,238,0.6); }
+.lecturer-section .milestone p { color: rgba(250,246,232,0.6); }
+.lecturer-section .milestone-bullet { color: var(--gold-light); }
+    .lecturer-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 52px;
+    }
+  .lecturer-photo {
+  width: 240px;
+  height: 350px;
+  border-radius: 4px;
+  overflow: hidden;
+  align-self: start;
+  margin-top: 26px;
+    }
+    .lecturer-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(168,137,90,0.2);
+      border-radius: 4px;
+    }
+    .lecturer-photo-inner {
+      text-align: center;
+      color: var(--gold);
+      opacity: 0.3;
+    }
+   .lecturer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 4px;
+  margin-top: 0;
+    }
+    .lecturer-role {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      display: block;
+    }
+    .milestone {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .milestone-bullet {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--gold-light);
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+    .milestone p { margin: 0; font-size: 15px; }
+
+   /* ── PRACTICAL ── */
+.practical-section { background: var(--cream); color: var(--text); padding: 52px 32px; }
+.practical-section h2 { color: var(--text); }
+.practical-section h2 em { color: var(--gold); }
+.practical-section .section-eyebrow { color: var(--gold); }
+.practical-section .practical-label { color: var(--gold); }
+.practical-section .practical-value { color: var(--text); }
+.practical-section .practical-note { color: var(--muted); }
+.practical-section .practical-item { border-color: rgba(184,134,11,0.15); background: rgba(255,255,255,0.6); }
+.practical-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  margin-top: 32px;
+}
+.practical-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(184,134,11,0.15);
+  padding: 24px 28px;
+}
+.practical-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: block;
+}
+.practical-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--text);
+}
+.practical-note { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      background: var(--sand);
+      padding: 52px 32px;
+    }
+    .cta-section h2 { margin-bottom: 24px; }
+    .cta-section p { max-width: 520px; margin: 0 auto 48px; }
+    .btn-secondary {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border-radius: 100px;
+      margin-left: 16px;
+      transition: all 0.25s;
+    }
+    .btn-secondary:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(247,243,238,0.4);
+      text-align: center;
+      padding: 40px 32px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+    }
+    footer a { color: var(--gold-light); text-decoration: none; }
+
+    /* ── DIVIDER ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin: 16px 0 40px;
+      opacity: 0.45;
+    }
+    .ornament-line {
+      width: 80px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .ornament-diamond {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      section { padding: 72px 24px; }
+      .about-grid,
+      .lecturer-grid,
+      .practical-grid { grid-template-columns: 1fr; gap: 40px; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .hero-meta { gap: 28px; }
+      .hero-divider { display: none; }
+    }
+.lightbox {
+  display: none;
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.85);
+  align-items: center; justify-content: center;
+  cursor: zoom-out;
+}
+.lightbox:target {
+  display: flex;
+}
+.lightbox img {
+  max-width: 90vw; max-height: 90vh;
+  object-fit: contain; border-radius: 4px;
+}
+
+//* ── LANG SWITCHER ── */
+.lang-switcher { display: flex; gap: 6px; }
+.lang-btn {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  background: transparent; color: var(--gold);
+  border: 1px solid rgba(168,137,90,0.4);
+  cursor: pointer; padding: 6px 14px;
+  border-radius: 100px; transition: all 0.2s;
+}
+.lang-btn:hover { background: var(--gold); color: var(--white); }
+.lang-btn.active { background: var(--gold); color: var(--white); border-color: var(--gold); }
+[data-lang] { display: none; }
+[data-lang].active { display: block; }
+[data-lang-inline] { display: none; }
+[data-lang-inline].active { display: inline; }
+.lightbox img[data-lang-inline] { display: none !important; }
+.lightbox img[data-lang-inline].active { display: block !important; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Power vs. Force</span>
+  <div style="display:flex; align-items:center; gap:20px;">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('cs')">CZ</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('pl')">PL</button>
+    </div>
+    <a href="https://www.kolibrikcestaksobe.cz/navrat-k-sobe-skrze-telo-dech-a-vnitrni-silu/" target="_blank" class="cta-nav">
+      <span data-lang-inline="cs" class="active">Přihlásit se →</span>
+      <span data-lang-inline="en">Register →</span>
+      <span data-lang-inline="pl">Zapisz się →</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <span class="hero-tag">
+  <span data-lang-inline="cs" class="active">TĚLO · DECH · VNITŘNÍ SÍLA</span>
+  <span data-lang-inline="en">BODY · BREATH · INNER POWER</span>
+  <span data-lang-inline="pl">CIAŁO · ODDECH · WEWNĘTRZNA SIŁA</span>
+</span>
+  <div class="hero-eyebrow">Lukas Misiorowski & Adéla Delongová</div>
+  <h1>POWER <em>vs. </em>FORCE</h1>
+  <p class="hero-subtitle">
+    <span data-lang-inline="cs" class="active">Návrat k sobě skrze tělo, dech a vnitřní sílu</span>
+    <span data-lang-inline="en">Return to yourself through body, breath and inner power</span>
+    <span data-lang-inline="pl">Powrót do siebie przez ciało, oddech i wewnętrzną moc</span>
+  </p>
+  <div class="hero-meta">
+  <div class="hero-meta-item">
+    <span class="label"><span data-lang-inline="cs" class="active">Datum</span><span data-lang-inline="en">Date</span><span data-lang-inline="pl">Data</span></span>
+    <span class="value">18. 7. 2026</span>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="hero-meta-item">
+    <span class="label"><span data-lang-inline="cs" class="active">Čas</span><span data-lang-inline="en">Time</span><span data-lang-inline="pl">Godzina</span></span>
+    <span class="value">9:30 - 17:00</span>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="hero-meta-item">
+    <span class="label"><span data-lang-inline="cs" class="active">Místo</span><span data-lang-inline="en">Location</span><span data-lang-inline="pl">Miejsce</span></span>
+    <span class="value">Centrum Kolibřík<br/>Český Těšín</span>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="hero-meta-item">
+    <span class="label"><span data-lang-inline="cs" class="active">Jazyk</span><span data-lang-inline="en">Language</span><span data-lang-inline="pl">Język</span></span>
+    <span class="value">
+  <span data-lang-inline="cs" class="active">Polština / Čeština</span>
+  <span data-lang-inline="en">Polish / Czech</span>
+  <span data-lang-inline="pl">Polski / Czeski</span>
+</span>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="hero-meta-item">
+    <span class="label"><span data-lang-inline="cs" class="active">Cena</span><span data-lang-inline="en">Price</span><span data-lang-inline="pl">Cena</span></span>
+    <span class="value">2090 Kč</span>
+  </div>
+</div>
+  <a href="https://www.kolibrikcestaksobe.cz/navrat-k-sobe-skrze-telo-dech-a-vnitrni-silu/" target="_blank" class="btn-primary">
+    <span data-lang-inline="cs" class="active">Rezervovat místo</span>
+    <span data-lang-inline="en">Reserve your spot</span>
+    <span data-lang-inline="pl">Zarezerwuj miejsce</span>
+  </a>
+  <div class="scroll-hint">scroll</div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <blockquote style="color: var(--text);"><span class="quote-mark">"</span>FORCE always moves against something, whereas POWER doesn't move against anything at all. Power energizes and supports. Power gives life and energy — force takes these away.<span class="quote-mark">"</span></blockquote>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-line"></div>
+  </div>
+  <cite style="color: var(--gold);">Dr. David Hawkins · <span data-lang-inline="cs" class="active">Moc vs. Síla</span><span data-lang-inline="en">Power vs. Force</span><span data-lang-inline="pl">Moc vs. Siła</span></cite>
+</div>
+
+<!-- ABOUT -->
+<section id="o-workshopu" style="padding: 60px 32px;">
+  <div class="container">
+    <div class="about-grid">
+ <div class="about-visual" style="margin-top: 108px;">
+  <a href="#plakat">
+    <img data-lang-inline="cs" class="active" src="https://drive.google.com/thumbnail?id=1NjL3YLgiVMAy6HTV96w4hIa-MU2pFuyn&sz=w800" alt="Plakát workshopu" style="width:100%; border-radius:4px; cursor:zoom-in;" />
+    <img data-lang-inline="en" src="https://drive.google.com/thumbnail?id=15ONC_mvWBFZW-dMaxtw63Ta3Agy2_WBD&sz=w800" alt="Workshop poster" style="width:100%; border-radius:4px; cursor:zoom-in;" />
+    <img data-lang-inline="pl" src="https://drive.google.com/thumbnail?id=1dx4uUBSgZgC86NeJho31zsmjG9usE5AD&sz=w800" alt="Plakat warsztatów" style="width:100%; border-radius:4px; cursor:zoom-in;" />
+  </a>
+</div>
+
+<!-- lightbox -->
+<div class="lightbox" id="plakat">
+  <a href="#!">
+    <img src="https://drive.google.com/thumbnail?id=1NjL3YLgiVMAy6HTV96w4hIa-MU2pFuyn&sz=w1600" alt="Plakát workshopu" />
+  </a>
+</div>
+      <div>
+        <span class="section-eyebrow"><span data-lang-inline="cs" class="active">O workshopu</span><span data-lang-inline="en">About the workshop</span><span data-lang-inline="pl">O warsztacie</span></span>
+        <h2>
+    <span data-lang-inline="cs" class="active">Znáš ten pocit, kdy se <em>snažíš</em> příliš?</span>
+    <span data-lang-inline="en">Do you know that feeling of <em>trying</em> too hard?</span>
+    <span data-lang-inline="pl">Znasz to uczucie, gdy <em>starasz się</em> za bardzo?</span>
+  </h2>
+        <div class="ornament" style="justify-content: flex-start; margin-left: 0;">
+          <div class="ornament-line"></div>
+          <div class="ornament-diamond"></div>
+        </div>
+        <div data-lang="cs" class="active">
+          <p>Přemýšlíš, plánuješ, tiskneš se vpřed — a přesto výsledky nepřicházejí tak, jak bys chtěl/a. Za tímto neúspěchem nestojí nedostatek úsilí. Stojí za ním rozdíl mezi Silou a Mocí.</p>
+          <p>Workshop <strong>POWER vs. FORCE</strong> tě zve k opětovnému navázání kontaktu se svou vnitřní mocí. Integrací mysli, těla a ducha vstoupíš do stavu <em>flow</em> — stavu, ve kterém jsou vhledy jasné, realizace cílů přichází s lehkostí a řešení se objevují sama.</p>
+          <p>Během šesti intenzivních hodin propojíme práci s tělem, dechem, pohybem a vědomím. Odejdeš s praktickými nástroji, které budeš moct začít používat ještě tentýž večer.</p>
+        </div>
+        <div data-lang="en">
+          <p>You think, plan, push forward — and yet results don't come the way you'd like. The problem isn't a lack of effort. It's the difference between Force and Power.</p>
+          <p>The <strong>POWER vs. FORCE</strong> workshop invites you to reconnect with your inner power. By integrating mind, body and spirit, you'll enter a state of <em>flow</em> — where insights are clear, goals manifest with ease and solutions appear on their own.</p>
+          <p>Over six intensive hours, we'll combine work with the body, breath, movement and awareness. You'll leave with practical tools you can start using that very evening.</p>
+        </div>
+        <div data-lang="pl">
+          <p>Myślisz, planujesz, pchasz się do przodu — a mimo to wyniki nie przychodzą tak, jak byś chciał/a. Za tym brakiem sukcesu nie stoi brak wysiłku. Stoi za nim różnica między Siłą a Mocą.</p>
+          <p>Warsztat <strong>POWER vs. FORCE</strong> zaprasza cię do ponownego nawiązania kontaktu z twoją wewnętrzną mocą. Integrując umysł, ciało i ducha, wejdziesz w stan <em>flow</em> — w którym spostrzeżenia są jasne, cele realizują się z łatwością i rozwiązania pojawiają się same.</p>
+          <p>Przez sześć intensywnych godzin połączymy pracę z ciałem, oddechem, ruchem i świadomością. Odejdziesz z praktycznymi narzędziami, które możesz zacząć stosować jeszcze tego samego wieczoru.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars-section" id="program" style="padding: 60px 32px;">
+  <div class="container-wide">
+    <span class="section-eyebrow"><span data-lang-inline="cs" class="active">Co na workshopu zažiješ</span><span data-lang-inline="en">What you will experience</span><span data-lang-inline="pl">Co przeżyjesz na warsztacie</span></span>
+    <h2><span data-lang-inline="cs" class="active">Čtyři dimenze<br/><em>návratu</em></span><span data-lang-inline="en">Four dimensions<br/>of <em>return</em></span><span data-lang-inline="pl">Cztery wymiary<br/><em>powrotu</em></span></h2>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-number">01</div>
+        <div data-lang="cs" class="active"><h3>Tělo jako průvodce</h3><p>Napětí, blokace a odpory se ukládají do těla dříve, než si je uvědomí mysl. Naučíš se je vědomě uvolňovat skrze pohyb, dech a somatické techniky.</p></div>
+        <div data-lang="en"><h3>Body as guide</h3><p>Tension, blocks and resistance are stored in the body before the mind even notices. You'll learn to consciously release them through movement, breath and somatic techniques.</p></div>
+        <div data-lang="pl"><h3>Ciało jako przewodnik</h3><p>Napięcia, blokady i opory gromadzą się w ciele zanim umysł je zauważy. Nauczysz się je świadomie uwalniać poprzez ruch, oddech i techniki somatyczne.</p></div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number">02</div>
+        <div data-lang="cs" class="active"><h3>Dech jako klíč</h3><p>Vědomá práce s dechem je nejrychlejší cesta do přítomnosti. Dech reguluje nervový systém, mění chemii mozku a otevírá prostor pro skutečné vnímání sebe sama.</p></div>
+        <div data-lang="en"><h3>Breath as key</h3><p>Conscious breathwork is the fastest path to the present moment. Breath regulates the nervous system, changes brain chemistry and opens space for genuine self-awareness.</p></div>
+        <div data-lang="pl"><h3>Oddech jako klucz</h3><p>Świadoma praca z oddechem to najszybsza droga do chwili obecnej. Oddech reguluje układ nerwowy, zmienia chemię mózgu i otwiera przestrzeń na prawdziwe postrzeganie siebie.</p></div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number">03</div>
+        <div data-lang="cs" class="active"><h3>Vnitřní síla vs. nátlak</h3><p>Pochopíš zásadní rozdíl: Síla (Force) vyžaduje neustálé úsilí. Moc (Power) přitahuje. Naučíš se rozpoznat, z které pozice jednáš — a jak se vědomě přesunout výš.</p></div>
+        <div data-lang="en"><h3>Inner power vs. force</h3><p>You'll understand the essential difference: Force requires constant effort. Power attracts. You'll learn to recognise which position you're acting from — and how to consciously shift higher.</p></div>
+        <div data-lang="pl"><h3>Wewnętrzna moc vs. przymus</h3><p>Zrozumiesz zasadniczą różnicę: Siła wymaga nieustannego wysiłku. Moc przyciąga. Nauczysz się rozpoznawać, z której pozycji działasz — i jak świadomie przesunąć się wyżej.</p></div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number">04</div>
+        <div data-lang="cs" class="active"><h3>Vědomé tvoření</h3><p>Přitahování toho, co chceš, nezačíná akcí — začíná tím, kým jsi. Naučíš se pracovat se svým vnitřním nastavením tak, aby změna přišla z přirozenosti, ne z tlaku.</p></div>
+        <div data-lang="en"><h3>Conscious creation</h3><p>Attracting what you want doesn't start with action — it starts with who you are. You'll learn to work with your inner state so that change comes from naturalness, not pressure.</p></div>
+        <div data-lang="pl"><h3>Świadome tworzenie</h3><p>Przyciąganie tego, czego chcesz, nie zaczyna się od działania — zaczyna się od tego, kim jesteś. Nauczysz się pracować ze swoim wewnętrznym nastawieniem, aby zmiana przychodziła z naturalności, nie z przymusu.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE LIST -->
+<section>
+  <div class="container">
+    <span class="section-eyebrow"><span data-lang-inline="cs" class="active">Podrobný obsah</span><span data-lang-inline="en">Detailed programme</span><span data-lang-inline="pl">Szczegółowy program</span></span>
+    <h2><span data-lang-inline="cs" class="active">Jak to celé<br/><em>vypadá</em></span><span data-lang-inline="en">What the day<br/><em>looks like</em></span><span data-lang-inline="pl">Jak to wszystko<br/><em>wygląda</em></span></h2>
+    <div class="experience-list">
+      <div class="experience-item">
+        <div class="exp-icon">⊙</div>
+        <div class="exp-content">
+          <div data-lang="cs" class="active"><h4>Moc vs. Síla — jít s proudem, ne proti zdi</h4><p>Poznáš rozdíl mezi jednáním z vnitřní moci a z tlaku. Naučíš se vstupovat do stavu flow — kdy jsou rozhodnutí jasná, výsledky přicházejí s lehkostí a ty se přestáváš bránit tomu, co je.</p></div>
+          <div data-lang="en"><h4>Power vs. Force — go with the flow, not against the wall</h4><p>You'll discover the difference between acting from inner power and from pressure. You'll learn to enter a state of flow — where decisions are clear, results come with ease and you stop resisting what is.</p></div>
+          <div data-lang="pl"><h4>Moc vs. Siła — płyń z prądem, nie bij głową w mur</h4><p>Poznasz różnicę między działaniem z wewnętrznej mocy a z przymusu. Nauczysz się wchodzić w stan flow — kiedy decyzje są jasne, wyniki przychodzą z łatwością i przestajesz opierać się temu, co jest.</p></div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="exp-icon">∿</div>
+        <div class="exp-content">
+          <div data-lang="cs" class="active"><h4>Stres, napětí a tělo — jak se skutečně uvolnit</h4><p>Stres není jen psychický — je uskladněn v těle. Vyzkoušíš somatické a dechové techniky, které aktivují přirozenou schopnost těla se resetovat a vrátit tě do přítomnosti.</p></div>
+          <div data-lang="en"><h4>Stress, tension and the body — how to truly relax</h4><p>Stress isn't just psychological — it's stored in the body. You'll try somatic and breathwork techniques that activate the body's natural ability to reset and bring you back to the present.</p></div>
+          <div data-lang="pl"><h4>Stres, napięcie i ciało — jak naprawdę się odprężyć</h4><p>Stres to nie tylko kwestia psychiczna — jest magazynowany w ciele. Wypróbujesz techniki somatyczne i oddechowe, które aktywują naturalną zdolność ciała do resetowania się i powrotu do chwili obecnej.</p></div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="exp-icon">☀</div>
+        <div class="exp-content">
+          <div data-lang="cs" class="active"><h4>Jóga smíchu — uzdravování skrze radost</h4><p>Vědomý smích snižuje kortizol, uvolňuje endorfiny a otevírá to, co jinak zůstává za zdí sebekontroly. Jedna z nejsilnějších částí dne — a pro mnohé největší překvapení.</p></div>
+          <div data-lang="en"><h4>Laughter yoga — healing through joy</h4><p>Conscious laughter reduces cortisol, releases endorphins and opens what otherwise stays behind the wall of self-control. One of the most powerful parts of the day — and for many, the biggest surprise.</p></div>
+          <div data-lang="pl"><h4>Joga śmiechu — uzdrawianie przez radość</h4><p>Świadomy śmiech obniża kortyzol, uwalnia endorfiny i otwiera to, co normalnie pozostaje za murem samokontroli. Jedna z najpotężniejszych części dnia — i dla wielu największa niespodzianka.</p></div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="exp-icon">✦</div>
+        <div class="exp-content">
+          <div data-lang="cs" class="active"><h4>Vědomé tvoření — přitahuj to, po čem toužíš</h4><p>Ne přes sílu vůle nebo seznamy přání. Přitahování začíná tím, kým jsi — jaké vibrace vyzařuješ a v jakém stavu mysli a těla žiješ každý den.</p></div>
+          <div data-lang="en"><h4>Conscious creation — attract what you desire</h4><p>Not through willpower or wish lists. Attraction starts with who you are — what vibrations you radiate and what state of mind and body you live in each day.</p></div>
+          <div data-lang="pl"><h4>Świadome tworzenie — przyciągaj to, czego pragniesz</h4><p>Nie przez silną wolę ani listy życzeń. Przyciąganie zaczyna się od tego, kim jesteś — jakie wibracje wysyłasz i w jakim stanie umysłu i ciała żyjesz każdego dnia.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:4px; margin-bottom:4px;">
+  <img src="https://drive.google.com/thumbnail?id=19Aq10ZqDGPYE4Rzs7mbT-xqXR125Uzy8&sz=w800" alt="" style="width:100%; height:380px; object-fit:cover; display:block; object-position: center 20%;" />
+  <img src="https://drive.google.com/thumbnail?id=19NqYLRhwfTI0OPOtUVvpgwL8F08qvaed&sz=w800" alt="" style="width:100%; height:380px; object-fit:cover; display:block;" />
+  <img src="https://drive.google.com/thumbnail?id=1TlF9xbFOqadsdvyoxvhzedRdKtWu6CZw&sz=w800" alt="" style="width:100%; height:380px; object-fit:cover; display:block;" />
+</div>
+
+<!-- HUNA -->
+<section class="huna-section" id="huna">
+  <div class="container-wide">
+    <span class="section-eyebrow"><span data-lang-inline="cs" class="active">Filozofie Huny</span><span data-lang-inline="en">Huna philosophy</span><span data-lang-inline="pl">Filozofia Huny</span></span>
+    <h2><span data-lang-inline="cs" class="active">7 principů,<br/>které prožiješ <em>tělem</em></span><span data-lang-inline="en">7 principles<br/>you'll experience with your <em>body</em></span><span data-lang-inline="pl">7 zasad,<br/>które przeżyjesz <em>ciałem</em></span></h2>
+    <div data-lang="cs" class="active"><p style="max-width:580px;">Huna je havajská filozofie štěstí a moudrosti. Na workshopu ji nepředáme jako teorii — každý princip fyzicky zakoušíš skrze pohyb, dech a vědomou pozornost.</p></div>
+    <div data-lang="en"><p style="max-width:580px;">Huna is a Hawaiian philosophy of happiness and wisdom. At the workshop we won't present it as theory — you'll physically experience each principle through movement, breath and conscious attention.</p></div>
+    <div data-lang="pl"><p style="max-width:580px;">Huna to hawajska filozofia szczęścia i mądrości. Na warsztacie nie przekażemy jej jako teorii — każdą zasadę fizycznie doświadczysz poprzez ruch, oddech i świadomą uwagę.</p></div>
+    <div class="huna-grid">
+      <div class="huna-card">
+        <div class="huna-word">IKE</div>
+        <div class="huna-meaning">
+          <span data-lang-inline="cs" class="active">Svět je utvářen tvými myšlenkami. Realita začíná uvnitř.</span>
+          <span data-lang-inline="en">The world is shaped by your thoughts. Reality begins within.</span>
+          <span data-lang-inline="pl">Świat jest kształtowany przez twoje myśli. Rzeczywistość zaczyna się wewnątrz.</span>
+        </div>
+      </div>
+      <div class="huna-card">
+        <div class="huna-word">KALA</div>
+        <div class="huna-meaning">
+          <span data-lang-inline="cs" class="active">Neexistují žádná vnitřní omezení. Vše je možné.</span>
+          <span data-lang-inline="en">There are no inner limits. Everything is possible.</span>
+          <span data-lang-inline="pl">Nie ma wewnętrznych ograniczeń. Wszystko jest możliwe.</span>
+        </div>
+      </div>
+      <div class="huna-card">
+        <div class="huna-word">MAKIA</div>
+        <div class="huna-meaning">
+          <span data-lang-inline="cs" class="active">Energie přirozeně proudí tam, kam směřuješ svou pozornost.</span>
+          <span data-lang-inline="en">Energy naturally flows where you direct your attention.</span>
+          <span data-lang-inline="pl">Energia naturalnie płynie tam, gdzie kierujesz swoją uwagę.</span>
+        </div>
+      </div>
+      <div class="huna-card">
+        <div class="huna-word">MANAWA</div>
+        <div class="huna-meaning">
+          <span data-lang-inline="cs" class="active">Přítomný okamžik je tvým bodem moci — to je stav Flow.</span>
+          <span data-lang-inline="en">The present moment is your point of power — that is the state of Flow.</span>
+          <span data-lang-inline="pl">Chwila obecna jest twoim punktem mocy — to jest stan Flow.</span>
+        </div>
+      </div>
+      <div class="huna-card">
+        <div class="huna-word">ALOHA</div>
+        <div class="huna-meaning">
+          <span data-lang-inline="cs" class="active">Milovat znamená nacházet štěstí v akceptaci. Skutečná láska přijímá.</span>
+          <span data-lang-inline="en">To love means to find happiness in acceptance. True love accepts.</span>
+          <span data-lang-inline="pl">Kochać oznacza znajdować szczęście w akceptacji. Prawdziwa miłość przyjmuje.</span>
+        </div>
+      </div>
+      <div class="huna-card">
+        <div class="huna-word">MANA</div>
+        <div class="huna-meaning">
+          <span data-lang-inline="cs" class="active">Veškerá skutečná moc pochází zevnitř. Nikdo ti ji nemůže dát ani vzít.</span>
+          <span data-lang-inline="en">All true power comes from within. No one can give it to you or take it away.</span>
+          <span data-lang-inline="pl">Cała prawdziwa moc pochodzi z wewnątrz. Nikt nie może ci jej dać ani zabrać.</span>
+        </div>
+      </div>
+      <div class="huna-card">
+        <div class="huna-word">PONO</div>
+        <div class="huna-meaning">
+          <span data-lang-inline="cs" class="active">Účinnost je konečným měřítkem pravdy. Pokud to funguje — je to pravda pro tebe.</span>
+          <span data-lang-inline="en">Effectiveness is the ultimate measure of truth. If it works — it is truth for you.</span>
+          <span data-lang-inline="pl">Skuteczność jest ostateczną miarą prawdy. Jeśli działa — jest to prawda dla ciebie.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section id="pro-koho">
+  <div class="container">
+    <span class="section-eyebrow"><span data-lang-inline="cs" class="active">Pro koho je workshop určen</span><span data-lang-inline="en">Who is this workshop for</span><span data-lang-inline="pl">Dla kogo jest ten warsztat</span></span>
+    <h2><span data-lang-inline="cs" class="active">Toto je pro tebe,<br/><em style="color:#2A4F8A;">pokud…</em></span><span data-lang-inline="en">This is for you,<br/><em style="color:#2A4F8A;">if…</em></span><span data-lang-inline="pl">To jest dla ciebie,<br/><em style="color:#2A4F8A;">jeśli…</em></span></h2>
+    <div class="for-whom-list">
+      <div class="for-whom-item">
+        <div class="for-whom-dot"></div>
+        <p><span data-lang-inline="cs" class="active">Cítíš, že se příliš snažíš — a výsledky nepřicházejí v souladu s vynaloženou energií.</span><span data-lang-inline="en">You feel like you're trying too hard — and results don't match the energy you put in.</span><span data-lang-inline="pl">Czujesz, że za bardzo się starasz — a wyniki nie odpowiadają włożonej energii.</span></p>
+      </div>
+      <div class="for-whom-item">
+        <div class="for-whom-dot"></div>
+        <p><span data-lang-inline="cs" class="active">Chceš se naučit pracovat se svým tělem, ne proti němu — a rozumět signálům, které ti vysílá.</span><span data-lang-inline="en">You want to learn to work with your body, not against it — and understand the signals it sends.</span><span data-lang-inline="pl">Chcesz nauczyć się pracować ze swoim ciałem, nie przeciwko niemu — i rozumieć sygnały, które wysyła.</span></p>
+      </div>
+      <div class="for-whom-item">
+        <div class="for-whom-dot"></div>
+        <p><span data-lang-inline="cs" class="active">Hledáš cestu z neustálého napětí, přemýšlení a vnitřního odporu k větší lehkosti v životě.</span><span data-lang-inline="en">You're looking for a way out of constant tension, overthinking and inner resistance toward greater ease in life.</span><span data-lang-inline="pl">Szukasz drogi wyjścia z ciągłego napięcia, nadmiernego myślenia i wewnętrznego oporu ku większej lekkości w życiu.</span></p>
+      </div>
+      <div class="for-whom-item">
+        <div class="for-whom-dot"></div>
+        <p><span data-lang-inline="cs" class="active">Toužíš prožít den pouze pro sebe — v pohybu, v přítomnosti, v prostoru bezpodmínečného přijetí.</span><span data-lang-inline="en">You long to spend a day just for yourself — in movement, in presence, in a space of unconditional acceptance.</span><span data-lang-inline="pl">Pragniesz spędzić dzień tylko dla siebie — w ruchu, w chwili obecnej, w przestrzeni bezwarunkowej akceptacji.</span></p>
+      </div>
+      <div class="for-whom-item">
+        <div class="for-whom-dot"></div>
+        <p><span data-lang-inline="cs" class="active">Věříš, že skutečná změna přichází zevnitř — a jsi připraven/a udělat první vědomý krok.</span><span data-lang-inline="en">You believe that real change comes from within — and you're ready to take the first conscious step.</span><span data-lang-inline="pl">Wierzysz, że prawdziwa zmiana przychodzi z wewnątrz — i jesteś gotowy/a zrobić pierwszy świadomy krok.</span></p>
+      </div>
+    </div>
+    <br/>
+    <div data-lang="cs" class="active"><p><em>Workshop je otevřen pro všechny bez ohledu na věk, pohlaví nebo zkušenosti s osobním rozvojem. Jediné, co potřebuješ přinést, je otevřenost.</em></p></div>
+    <div data-lang="en"><p><em>The workshop is open to everyone regardless of age, gender or experience with personal development. The only thing you need to bring is openness.</em></p></div>
+    <div data-lang="pl"><p><em>Warsztat jest otwarty dla wszystkich bez względu na wiek, płeć czy doświadczenie z rozwojem osobistym. Jedyne, co musisz przynieść, to otwartość.</em></p></div>
+  </div>
+</section>
+
+<!-- LECTURER -->
+<section class="lecturer-section" id="lektor">
+  <div class="container-wide">
+    <span class="section-eyebrow"><span data-lang-inline="cs" class="active">Facilitátoři</span><span data-lang-inline="en">Facilitators</span><span data-lang-inline="pl">Facilitatorzy</span></span>
+    <h2><span data-lang-inline="cs" class="active">Kdo tě <em>provede</em> workshopem</span><span data-lang-inline="en">Who will <em>guide</em> you</span><span data-lang-inline="pl">Kto cię <em>poprowadzi</em></span></h2>
+
+    <div style="display:grid; grid-template-columns:240px 1fr; gap:64px; align-items:start; margin-top:52px; margin-bottom:72px;">
+      <div class="lecturer-photo" style="height:350px; overflow:hidden;">
+        <img src="https://drive.google.com/thumbnail?id=1Tl9QJfivCVbqyrplOiNZwaLjXmcbXD_4&sz=w800" alt="Lukas Misiorowski" style="width:100%; height:100%; object-fit:cover; display:block; object-position: center center;" />
+      </div>
+      <div style="margin-top:0; padding-top:0;">
+        <div class="lecturer-name" style="margin:0 0 4px 0;">Lukas Misiorowski</div>
+        <span class="lecturer-role"><span data-lang-inline="cs" class="active">Hlavní facilitátor</span><span data-lang-inline="en">Lead Facilitator</span><span data-lang-inline="pl">Główny facilitator</span></span>
+        <div data-lang="cs" class="active">
+          <p>Lukas propojuje spirituální moudrost s byznysovou zkušeností a věří, že seberealizace je klíčem k nejautentičtějšímu životu. Svou cestu zasvětil tomu, aby ostatním pomohl prohloubit jednotu těla, mysli a duše.</p>
+          <p>Vedl skupinu pěti společností na několika kontinentech s projekty v hodnotě až 93 milionů dolarů — byznysový svět opustil, aby svou energii věnoval průvodcovství.</p>
+          <p>Prošel 44denním vodním půstem a 14denním suchým půstem, 53minutovou ledovou koupelí a zažil klinickou smrt po vážné nehodě na motocyklu — zážitky, které hluboce proměnily jeho pohled na lidskou sílu a odolnost.</p>
+          <p style="margin-top:16px;">Hovoří pěti jazyky a pohybuje se stejně přirozeně ve světě byznysu i spirituality — tyto dva světy s vášní propojuje ve svých workshopech.</p>
+        </div>
+        <div data-lang="en">
+          <p>Lukas combines spiritual wisdom with business experience and believes that self-realisation is the key to the most authentic life. He has dedicated his path to helping others deepen the unity of body, mind and soul.</p>
+          <p>He led a group of five companies across multiple continents with projects worth up to 93 million dollars — he left the business world to dedicate his energy to guiding others.</p>
+          <p>He completed a 44-day water fast, a 14-day dry fast, 53 minutes in ice water and survived clinical death after a serious motorcycle accident — experiences that profoundly transformed his view of human strength and resilience.</p>
+          <p style="margin-top:16px;">He speaks five languages and moves equally naturally in the world of business and spirituality — he passionately connects these two worlds in his workshops.</p>
+        </div>
+        <div data-lang="pl">
+          <p>Lukas łączy duchową mądrość z doświadczeniem biznesowym i wierzy, że samorealizacja jest kluczem do najbardziej autentycznego życia. Swoją ścieżkę poświęcił pomaganiu innym w pogłębianiu jedności ciała, umysłu i duszy.</p>
+          <p>Prowadził grupę pięciu firm na kilku kontynentach z projektami o wartości do 93 milionów dolarów — opuścił świat biznesu, aby poświęcić swoją energię prowadzeniu innych.</p>
+          <p>Przeszedł 44-dniowy post wodny, 14-dniowy post suchy, 53 minuty w lodowatej wodzie i przeżył śmierć kliniczną po poważnym wypadku motocyklowym — doświadczenia, które głęboko przemieniły jego pogląd na ludzką siłę i odporność.</p>
+          <p style="margin-top:16px;">Mówi pięcioma językami i porusza się równie naturalnie w świecie biznesu i duchowości — z pasją łączy te dwa światy na swoich warsztatach.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:240px 1fr; gap:64px; align-items:start;">
+      <div class="lecturer-photo" style="height:350px; overflow:hidden;">
+        <img src="https://drive.google.com/thumbnail?id=1fzLhQkzle4_Zp5W7VfzMp5DcyE3IE5s1&sz=w800" alt="Adéla Delongová" style="width:100%; height:100%; object-fit:cover; display:block; object-position: center center;" />
+      </div>
+      <div style="margin-top:0; padding-top:0;">
+        <div class="lecturer-name" style="margin:0 0 4px 0;">Adéla Delongová</div>
+        <span class="lecturer-role"><span data-lang-inline="cs" class="active">Spolufacilitátorka</span><span data-lang-inline="en">Co-Facilitator</span><span data-lang-inline="pl">Współfacilitatorka</span></span>
+        <div data-lang="cs" class="active">
+          <p>Adéla vystudovala Biomedicínskou techniku a svůj zájem o lidské tělo postupně rozvinula směrem k jeho přirozené očistě a regeneraci. Věří, že trvalá změna se vždy odehrává na obou úrovních zároveň — fyzické i mentální.</p>
+          <p>Sama dosvědčila, co dokáže tělo, když dostane prostor k regeneraci — a nyní tvoří programy, které lidem ukazují, jak s očistou začít krok po kroku.</p>
+          <p>Její osobní cesta transformace začala v roce 2024, kdy dokončila 800 km dlouhou trasu Camino de Frances — pouť, která zásadně proměnila její život a otevřela dveře novým možnostem.</p>
+          <p>Prochází certifikací metody TRE a věnuje se somatickým a dechovým cvičením — na workshopu tě provede technikami vědomé práce s tělem a dechem.</p>
+        </div>
+        <div data-lang="en">
+          <p>Adéla studied Biomedical Engineering and gradually developed her interest in the human body toward its natural cleansing and regeneration. She believes that lasting change always happens on both levels simultaneously — physical and mental.</p>
+          <p>She has personally witnessed what the body is capable of when given space to regenerate — and now creates programmes that guide people through the cleansing process step by step.</p>
+          <p>Her personal journey of transformation began in 2024, when she completed the 800 km Camino de Frances. This pilgrimage brought significant changes to her life and opened doors to new possibilities.</p>
+          <p>She is completing her TRE certification and focuses on somatic and breathwork exercises — at the workshop she will guide you through techniques of conscious work with body and breath.</p>
+        </div>
+        <div data-lang="pl">
+          <p>Adéla ukończyła Technikę Biomedyczną i stopniowo rozwinęła swoje zainteresowanie ludzkim ciałem w kierunku jego naturalnego oczyszczania i regeneracji. Wierzy, że trwała zmiana zawsze odbywa się jednocześnie na obu poziomach — fizycznym i mentalnym.</p>
+          <p>Sama doświadczyła, co potrafi ciało, gdy dostanie przestrzeń do regeneracji — i teraz tworzy programy, które pokazują ludziom, jak zacząć oczyszczanie krok po kroku.</p>
+          <p>Jej osobista droga transformacji rozpoczęła się w 2024 roku, kiedy ukończyła 800 km trasę Camino de Frances. Ta pielgrzymka przyniosła do jej życia zasadnicze zmiany i otworzyła drzwi nowym możliwościom.</p>
+          <p>Przechodzi certyfikację metody TRE i zajmuje się ćwiczeniami somatycznymi i oddechowymi — na warsztacie poprowadzi cię przez techniki świadomej pracy z ciałem i oddechem.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRACTICAL INFO -->
+<section class="practical-section" id="prakticky">
+  <div class="container-wide">
+    <span class="section-eyebrow"><span data-lang-inline="cs" class="active">Praktické informace</span><span data-lang-inline="en">Practical information</span><span data-lang-inline="pl">Informacje praktyczne</span></span>
+    <h2>
+      <span data-lang-inline="cs" class="active">Vše, co<br/><em style="color:#2A4F8A;">potřebuješ vědět</em></span>
+      <span data-lang-inline="en">Everything<br/><em style="color:#2A4F8A;">you need to know</em></span>
+      <span data-lang-inline="pl">Wszystko, co<br/><em style="color:#2A4F8A;">musisz wiedzieć</em></span>
+    </h2>
+    <div class="practical-grid">
+      <div class="practical-item">
+        <span class="practical-label"><span data-lang-inline="cs" class="active">Délka workshopu</span><span data-lang-inline="en">Duration</span><span data-lang-inline="pl">Czas trwania</span></span>
+        <div class="practical-value"><span data-lang-inline="cs" class="active">6 hodin</span><span data-lang-inline="en">6 hours</span><span data-lang-inline="pl">6 godzin</span></div>
+        <p class="practical-note">
+          <span data-lang-inline="cs" class="active">Intenzivní, ale vyvážené tempo. Prostor pro integraci je součástí programu. V průběhu dne je zařazena 1,5hodinová pauza na oběd.</span>
+          <span data-lang-inline="en">Intensive but balanced pace. Space for integration is part of the programme. A 1.5-hour lunch break is included in the day.</span>
+          <span data-lang-inline="pl">Intensywne, ale wyważone tempo. Przestrzeń na integrację jest częścią programu. W ciągu dnia przewidziana jest 1,5-godzinna przerwa na obiad.</span>
+        </p>
+      </div>
+      <div class="practical-item">
+        <span class="practical-label"><span data-lang-inline="cs" class="active">Místo konání</span><span data-lang-inline="en">Location</span><span data-lang-inline="pl">Miejsce</span></span>
+        <div class="practical-value">Centrum Kolibřík</div>
+        <p class="practical-note">
+          <span data-lang-inline="cs" class="active">Bezpečný, klidný prostor navržený pro vnitřní práci a transformaci. V centru Kolibřík si můžeš objednat oběd z domácí kuchyně — připravený speciálně pro účastníky.</span>
+          <span data-lang-inline="en">A safe, quiet space designed for inner work and transformation. At Centrum Kolibřík you can order a home-cooked lunch — prepared especially for participants.</span>
+          <span data-lang-inline="pl">Bezpieczna, spokojna przestrzeń zaprojektowana do pracy wewnętrznej i transformacji. W Centrum Kolibřík możesz zamówić domowy obiad — przygotowany specjalnie dla uczestników.</span>
+        </p>
+      </div>
+      <div class="practical-item">
+        <span class="practical-label"><span data-lang-inline="cs" class="active">Co si přinést</span><span data-lang-inline="en">What to bring</span><span data-lang-inline="pl">Co zabrać</span></span>
+        <div class="practical-value"><span data-lang-inline="cs" class="active">Pohodlné oblečení</span><span data-lang-inline="en">Comfortable clothes</span><span data-lang-inline="pl">Wygodne ubranie</span></div>
+        <p class="practical-note">
+          <span data-lang-inline="cs" class="active">Budeme se pohybovat, pracovat s tělem a dechem. Vhodné je oblečení, ve kterém se cítíš volně.</span>
+          <span data-lang-inline="en">We'll be moving, working with the body and breath. Suitable clothing is anything you feel free and comfortable in.</span>
+          <span data-lang-inline="pl">Będziemy się poruszać, pracować z ciałem i oddechem. Odpowiedni strój to taki, w którym czujesz się swobodnie.</span>
+        </p>
+      </div>
+      <div class="practical-item">
+        <span class="practical-label"><span data-lang-inline="cs" class="active">Pro koho</span><span data-lang-inline="en">For whom</span><span data-lang-inline="pl">Dla kogo</span></span>
+        <div class="practical-value"><span data-lang-inline="cs" class="active">Otevřeno všem</span><span data-lang-inline="en">Open to all</span><span data-lang-inline="pl">Otwarte dla wszystkich</span></div>
+        <p class="practical-note">
+          <span data-lang-inline="cs" class="active">Žádná předchozí zkušenost s osobním rozvojem ani jógou není potřeba. Přijď jako jsi.</span>
+          <span data-lang-inline="en">No prior experience with personal development or yoga is needed. Come as you are.</span>
+          <span data-lang-inline="pl">Żadne wcześniejsze doświadczenie z rozwojem osobistym ani jogą nie jest potrzebne. Przyjdź taki, jaki jesteś.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="prihlaseni">
+  <div class="container">
+    <span class="section-eyebrow"><span data-lang-inline="cs" class="active">Udělej první krok</span><span data-lang-inline="en">Take the first step</span><span data-lang-inline="pl">Zrób pierwszy krok</span></span>
+   <h2><span data-lang-inline="cs" class="active">Jsi <em style="color:#2A4F8A;">připraven/a</em><br/>zažít něco nového?</span><span data-lang-inline="en">Are you <em style="color:#2A4F8A;">ready</em><br/>to experience something new?</span><span data-lang-inline="pl">Czy jesteś <em style="color:#2A4F8A;">gotowy/a</em><br/>doświadczyć czegoś nowego?</span></h2>
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+    <div data-lang="cs" class="active"><p>Kapacita workshopu je omezená, aby každý účastník mohl prožít skutečně osobní zkušenost. Rezervuj si místo dnes.</p></div>
+    <div data-lang="en"><p>Workshop capacity is limited so that every participant can have a truly personal experience. Reserve your spot today.</p></div>
+    <div data-lang="pl"><p>Liczba miejsc na warsztacie jest ograniczona, aby każdy uczestnik mógł przeżyć naprawdę osobiste doświadczenie. Zarezerwuj swoje miejsce już dziś.</p></div>
+    <a href="https://www.kolibrikcestaksobe.cz/navrat-k-sobe-skrze-telo-dech-a-vnitrni-silu/" target="_blank" class="btn-primary">
+      <span data-lang-inline="cs" class="active">Přihlásit se na workshop →</span>
+      <span data-lang-inline="en">Sign up for the workshop →</span>
+      <span data-lang-inline="pl">Zapisz się na warsztat →</span>
+    </a>
+<div style="display:grid; grid-template-columns:1fr 1px 1fr; gap:32px; align-items:center; margin-top:40px;">
+  <div style="text-align:right;">
+    <p style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:var(--text); margin:0 0 6px 0;">Lukas Misiorowski</p>
+    <p style="margin:0; font-size:14px;"><a href="tel:+48507770631" style="color:var(--gold); text-decoration:none;">+48 507 770 631</a></p>
+    <p style="margin:0; font-size:14px;"><a href="mailto:lukasmisi@me.com" style="color:var(--gold); text-decoration:none;">lukasmisi@me.com</a></p>
+  </div>
+  <div style="background:var(--gold); height:80px; width:1px;"></div>
+  <div style="text-align:left;">
+    <p style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:var(--text); margin:0 0 6px 0;">Adéla Delongová</p>
+    <p style="margin:0; font-size:14px;"><a href="tel:+420605516861" style="color:var(--gold); text-decoration:none;">+420 605 516 861</a></p>
+    <p style="margin:0; font-size:14px;"><a href="mailto:adi.delongova@gmail.com" style="color:var(--gold); text-decoration:none;">adi.delongova@gmail.com</a></p>
+  </div>
+</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Lukas Misiorowski · Adéla Delongová &nbsp;|&nbsp; <span data-lang-inline="cs" class="active">Workshop organizován ve spolupráci s</span><span data-lang-inline="en">Workshop organised in cooperation with</span><span data-lang-inline="pl">Warsztat zorganizowany we współpracy z</span> <a href="https://www.kolibrikcestaksobe.cz" target="_blank">Centrem Kolibřík</a></p>
+</footer>
+
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+    });
+    document.querySelectorAll('[data-lang-inline]').forEach(el => {
+      el.classList.toggle('active', el.getAttribute('data-lang-inline') === lang);
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('onclick').includes("'" + lang + "'"));
+    });
+document.querySelectorAll('.lightbox img[data-lang-inline]').forEach(el => {
+  el.classList.toggle('active', el.getAttribute('data-lang-inline') === lang);
+});
+    document.documentElement.setAttribute('lang', lang);
+    localStorage.setItem('pvf-lang', lang);
+  }
+
+ (function() {
+    const saved = localStorage.getItem('pvf-lang') || 'cs';
+    setLang(saved);
+  })();
+</script>
+</body>
+</html>
