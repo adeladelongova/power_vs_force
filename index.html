@@ -609,14 +609,70 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
-      section { padding: 72px 24px; }
-      .about-grid,
-      .lecturer-grid,
-      .practical-grid { grid-template-columns: 1fr; gap: 40px; }
-      .pillars-grid { grid-template-columns: 1fr; }
-      .hero-meta { gap: 28px; }
+      /* NAV */
+      nav { padding: 12px 16px; flex-wrap: nowrap; gap: 8px; }
+      .nav-logo { font-size: 10px; letter-spacing: 0.12em; flex-shrink: 0; }
+      .lang-switcher { gap: 3px; flex-wrap: nowrap !important; }
+.lang-btn { padding: 3px 7px !important; font-size: 8px !important; border-radius: 100px; }
+      nav a.cta-nav { font-size: 10px; padding: 6px 12px; }
+
+      /* SECTIONS */
+      section { padding: 52px 20px; }
+
+      /* HERO */
+      .hero { padding: 100px 20px 80px; height: auto; min-height: 100vh; }
+      .hero-tag { font-size: 10px; padding: 5px 14px; }
+      h1 { font-size: clamp(52px, 15vw, 86px); }
+      .hero-subtitle { font-size: 18px; margin-bottom: 32px; }
+      .hero-meta {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 20px !important;
+        padding: 16px !important;
+        justify-content: center !important;
+      }
+      .hero-meta-item {
+        padding: 8px 16px;
+        border-right: none !important;
+        border-bottom: none !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        text-align: center;
+      }
+      .hero-meta-item .label { margin-bottom: 0; }
       .hero-divider { display: none; }
+      .hero-meta-item:last-child { width: 100%; padding-top: 16px; }
+      .btn-primary { margin-top: 32px; padding: 16px 32px; font-size: 11px; }
+      .scroll-hint { display: none; }
+
+      /* GRIDS */
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .pillars-grid { grid-template-columns: 1fr; gap: 2px; }
+      .practical-grid { grid-template-columns: 1fr; gap: 2px; }
+
+      /* HUNA */
+      .huna-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+      /* LECTURERS */
+      .lecturer-section div[style*="240px"] {
+        display: flex !important; flex-direction: column !important; gap: 24px !important;
+      }
+      .lecturer-photo { width: 100% !important; height: 280px !important; margin-top: 0 !important; }
+
+      /* CONTACTS */
+      div[style*="1fr 1px 1fr"] {
+        display: flex !important; flex-direction: column !important;
+        gap: 24px !important; align-items: center !important;
+      }
+      div[style*="background:var(--gold); height:80px"] { display: none !important; }
+      div[style*="text-align:right"] { text-align: center !important; }
+      div[style*="text-align:left"] { text-align: center !important; }
+
+      /* GALLERY */
+      .gallery-grid { display: none !important; }
+      .gallery-carousel { display: block !important; }
     }
 .lightbox {
   display: none;
@@ -843,7 +899,7 @@
         </div>
       </div>
       <div class="experience-item">
-        <div class="exp-icon">☀</div>
+        <div class="exp-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg></div>
         <div class="exp-content">
           <div data-lang="cs" class="active"><h4>Jóga smíchu — uzdravování skrze radost</h4><p>Vědomý smích snižuje kortizol, uvolňuje endorfiny a otevírá to, co jinak zůstává za zdí sebekontroly. Jedna z nejsilnějších částí dne — a pro mnohé největší překvapení.</p></div>
           <div data-lang="en"><h4>Laughter yoga — healing through joy</h4><p>Conscious laughter reduces cortisol, releases endorphins and opens what otherwise stays behind the wall of self-control. One of the most powerful parts of the day — and for many, the biggest surprise.</p></div>
@@ -863,10 +919,24 @@
 </section>
 
 <!-- GALLERY -->
-<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:4px; margin-bottom:4px;">
+<!-- Desktop: grid -->
+<div class="gallery-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:4px; margin-bottom:4px;">
   <img src="https://drive.google.com/thumbnail?id=19Aq10ZqDGPYE4Rzs7mbT-xqXR125Uzy8&sz=w800" alt="" style="width:100%; height:380px; object-fit:cover; display:block; object-position: center 20%;" />
   <img src="https://drive.google.com/thumbnail?id=19NqYLRhwfTI0OPOtUVvpgwL8F08qvaed&sz=w800" alt="" style="width:100%; height:380px; object-fit:cover; display:block;" />
   <img src="https://drive.google.com/thumbnail?id=1TlF9xbFOqadsdvyoxvhzedRdKtWu6CZw&sz=w800" alt="" style="width:100%; height:380px; object-fit:cover; display:block;" />
+</div>
+<!-- Mobile: carousel -->
+<div class="gallery-carousel" style="display:none; position:relative; overflow:hidden; height:300px; margin-bottom:4px;">
+  <div class="carousel-track" style="display:flex; height:100%; transition: transform 0.5s ease;">
+    <img src="https://drive.google.com/thumbnail?id=19Aq10ZqDGPYE4Rzs7mbT-xqXR125Uzy8&sz=w800" alt="" style="min-width:100%; height:300px; object-fit:cover; object-position: center 20%;" />
+    <img src="https://drive.google.com/thumbnail?id=19NqYLRhwfTI0OPOtUVvpgwL8F08qvaed&sz=w800" alt="" style="min-width:100%; height:300px; object-fit:cover;" />
+    <img src="https://drive.google.com/thumbnail?id=1TlF9xbFOqadsdvyoxvhzedRdKtWu6CZw&sz=w800" alt="" style="min-width:100%; height:300px; object-fit:cover;" />
+  </div>
+  <div class="carousel-dots" style="position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:8px;">
+    <span class="dot active" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.9); cursor:pointer;"></span>
+    <span class="dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.4); cursor:pointer;"></span>
+    <span class="dot" style="width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.4); cursor:pointer;"></span>
+  </div>
 </div>
 
 <!-- HUNA -->
@@ -1128,6 +1198,31 @@
 
 
 <script>
+  // Carousel
+  (function() {
+    var track = document.querySelector('.carousel-track');
+    var dots = document.querySelectorAll('.carousel-dots .dot');
+    if (!track) return;
+    var current = 0;
+    var total = track.children.length;
+
+    function goTo(index) {
+      current = index;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function(d, i) {
+        d.style.background = i === current ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.4)';
+      });
+    }
+
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() { goTo(i); });
+    });
+
+    setInterval(function() {
+      goTo((current + 1) % total);
+    }, 3500);
+  })();
+
   function setLang(lang) {
     document.querySelectorAll('[data-lang]').forEach(el => {
       el.classList.toggle('active', el.getAttribute('data-lang') === lang);
